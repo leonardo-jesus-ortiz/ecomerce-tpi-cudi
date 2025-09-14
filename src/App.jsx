@@ -6,16 +6,13 @@ import Navbar from "./components/Navbar";
 import AuthStatus from "./components/AuthStatus";
 import Dashboard from "./components/dashboard";
 import CartButton from "./components/cartButton";
+import NavbarBase from "./components/NavbarBase";
 
 const App = () => {
   const userLogin = false; // Simulating user login status
   return (
       <Router>
         <Navbar/>
-        {/* componentes para borra */}
-        <AuthStatus/>
-        <Dashboard/>
-        <CartButton user={true} cart={true} />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={!userLogin ? <SignUpPage/> : <Navigate to="/"/>} />

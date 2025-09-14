@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import { LogIn, LogOut, UserPlus, UserPlus2 } from 'lucide-react'
+import { LogIn, LogOut, UserPlus } from 'lucide-react'
 
 const AuthStatus = ({user = true}) => {
     const [login, setLogin] = useState(true)
