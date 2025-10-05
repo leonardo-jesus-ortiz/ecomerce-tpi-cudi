@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { KeyRound, Mail, Smartphone, User } from "lucide-react";
-import FormField from "../components/FormField";
-import TitleForm from "../components/TitleForm";
+import FormContainer from '../components/FormContainer';
 
 const SignUpPage = () => {
         const [email, setEmail] = useState('');
@@ -19,58 +18,60 @@ const SignUpPage = () => {
         console.log('Last Name:', lastName);
         console.log('Iphone:', iphone);
         console.log('Confirm Password:', confirmPassword);
-    };
+        };
+    const fields = [
+            {name: 'name', 
+            label: 'Ingrese su Nombre: ', 
+            icon: User, 
+            value: name, 
+            onChange: setName, 
+            type: 'text', 
+            placeholder: 'Ej: Juan'},
+
+            {name: 'lastName', 
+            label: 'Ingrese su Apellido: ', 
+            icon: User, 
+            value: lastName, 
+            onChange: setLastName, 
+            type: 'text', 
+            placeholder: 'Ej: Pérez'},
+
+            {name: 'iphone', 
+            label: 'Ingrese su Teléfono: ', 
+            icon: Smartphone, 
+            value: iphone, 
+            onChange: setIphone, 
+            type: 'tel', 
+            placeholder: 'Ej: +1234567890'},
+
+            {name: 'email', 
+            label: 'Ingrese su Correo Electrónico: ', 
+            icon: Mail, 
+            value: email, 
+            onChange: setEmail, 
+            type: 'email', 
+            placeholder: 'Ej: juan@example.com'},
+
+            {name: 'password', 
+            label: 'Ingrese su Contraseña: ', 
+            icon: KeyRound, 
+            value: password, 
+            onChange: setPassword, 
+            type: 'password', 
+            placeholder: 'Mínimo 8 caracteres'},
+
+            {name: 'confirmPassword',
+            label: 'Confirmar Contraseña: ', 
+            icon: KeyRound,
+            value: confirmPassword, 
+            onChange: setConfirmPassword, 
+            type: 'password', 
+            placeholder: 'Reingrese su contraseña'},
+        ];
     return (
-        <div>
-            <TitleForm title="Registrarse" />
-            <div className='mt-8 sm:mx-auto sm:w-full sm:max-w-md'>
-            <div className='bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-8'>
-                <form onSubmit={handleSubmit} className='space-y-6'>
-                <FormField 
-                    fieldName="name"
-                    FieldIcon={User}
-                    fieldValue={name}
-                    setField={setName}
-                />
-                <FormField
-                    fieldName="lastName"
-                    FieldIcon={User}
-                    fieldValue={lastName}
-                    setField={setLastName}
-                />
-                <FormField
-                    fieldName="iphone"
-                    FieldIcon={Smartphone}
-                    fieldValue={iphone}
-                    setField={setIphone}
-                />
-                <FormField
-                    fieldName="email"
-                    FieldIcon={Mail}
-                    fieldValue={email}
-                    setField={setEmail}
-                />
-                <FormField
-                    fieldName="password"
-                    FieldIcon={KeyRound}
-                    fieldValue={password}
-                    setField={setPassword}
-                />
-                <FormField
-                    fieldName="confirmPassword"
-                    FieldIcon={KeyRound}
-                    fieldValue={confirmPassword}
-                    setField={setConfirmPassword}
-                />
-                <button
-                    className='w-full flex justify-center border rounded-md border-transparent
-                    bg-emerald-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-emerald-700
-                    focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2'
-                    type='submit'>Enviar </button>
-                </form>
-            </div>
-          </div>
-        </div>
+        <FormContainer title="Crear Cuenta" fields={fields} onSubmit={handleSubmit}
+        submitlabel='Completar'/>
+  
     );
 }
 
