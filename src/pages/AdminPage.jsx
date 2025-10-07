@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import AdminTabs from '../components/AdminTabs';
 import CreateProductForm from '../components/CreateProductForm';
 import ProductList from '../components/ProductList';
@@ -25,10 +25,6 @@ const AdminPage = () => {
 
   const toggleActive = productId => {
     console.log('Se esta cambiando el estado del producto: ', productId);
-
-    if (products.active === undefined) {
-      products.active = true
-    }
 
     setProducts(
       products.map(product =>
