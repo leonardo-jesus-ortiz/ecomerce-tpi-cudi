@@ -4,6 +4,7 @@ import CreateProductForm from '../components/CreateProductForm';
 import ProductList from '../components/ProductList';
 import Analytics from '../components/Analytics';
 
+
 const AdminPage = () => {
   const [activeTab, setActiveTab] = useState('create');
   const [products, setProducts] = useState([]);

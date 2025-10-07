@@ -3,12 +3,11 @@ import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import Navbar from "./components/Navbar";
-import AuthStatus from "./components/AuthStatus";
-import Dashboard from "./components/dashboard";
-import CartButton from "./components/cartButton";
-import NavbarBase from "./components/NavbarBase";
+import AdminPage from "./pages/AdminPage";
+import CategoryPage from "./pages/CategoryPage";
 
 const App = () => {
+  const user = { role: "admin" }; // Simulating a logged-in admin user
   const userLogin = false; // Simulating user login status
   return (
       <Router>
@@ -17,6 +16,8 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={!userLogin ? <SignUpPage/> : <Navigate to="/"/>} />
           <Route path="/login" element={!userLogin ? <LoginPage/> : <Navigate to = "/"></Navigate>} />
+          <Route path="/secret-dashboard" element={user.role === "admin" ? <AdminPage/> : <Navigate to="/login" />} />
+          <Route path='/category/:category' element={<CategoryPage/>}/>
         </Routes>
       </Router>
   );

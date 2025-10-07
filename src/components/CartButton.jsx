@@ -1,4 +1,4 @@
-import { ShoppingCart, ShoppingCartIcon } from "lucide-react"
+import { ShoppingCart } from "lucide-react"
 import { Link } from "react-router-dom"
 
 const CartButton = ({user = true, cart}) => {
